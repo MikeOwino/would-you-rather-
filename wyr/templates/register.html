@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %} Would You Rather 🟦🟥 {% endblock %} 
+
+{% block body %}
+  <div class="text-center">
+    <br><br>
+    <form class="form-signin" method="POST">
+      {% csrf_token %}
+      <div style="margin-right: 40%;margin-left: 40%;">
+          {% if message %}
+            <div class="alert alert-danger">{{ message }}</div>
+          {% endif %}
+        <h2>Signup</h2><hr>
+        <input class="form form-control" name="email" type="email" placeholder="Email (Optional)">
+        <input class="form form-control" name="username" type="text" placeholder="Username">
+        <input class="form form-control" name="password" type="password" placeholder="Password">
+        <input class="form form-control" name="confirmation" type="password" placeholder="Confirm password"><br>
+        <button type="submit" class="btn btn-primary" style="width: 100%;" onClick='this.innerHTML = "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"><\/span>\r\n  <span class=\"visually-hidden\">Loading...<\/span>";this.disabled = "disabled";document.querySelector(".form-signin").submit()'>Signup</button>
+              <p>Oh, you already have an account? Then <a href="{% url 'login' %}">login</a>.</p>
+      </div>
+      <BR><h3>notice: you will get an 403 error if you don't open it in a new tab. sorry about that.</h3>
+    </form>
+  </div>
+{% endblock %}

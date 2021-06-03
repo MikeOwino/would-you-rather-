@@ -1,0 +1,215 @@
+:root {
+    --text-color: black;
+    --bg-color: white;
+    --primary-color: #0070E0;
+    --code-snippet-text: #C10000;
+    --code-snippet-highlight: #FFEDED;
+    --dark-grey200: #21242C;
+    --dark-grey300: rgb(33,36,44,0.64);
+    --light-grey400: #E4E4E4;
+    --light-grey500: #F1F1F1;
+    --light-grey600: #F8F8F8;
+    --spacing-half: 4px;
+    --spacing-1: 8px;
+    --spacing-2: 16px;
+    --spacing-3: 24px;
+    --spacing-4: 32px;
+    --spacing-5: 40px;
+    --spacing-6: 48px;
+    --spacing-7: 56px;
+    --spacing-8: 64px;
+}
+
+body {
+  background-color: #171D2D;
+  overflow: visible !important;
+  color: #E1E2E4;
+}
+
+.blue{
+  background-color: #0078D7;
+}
+.red{
+  background-color: #E81224;
+}
+
+.wyr {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  width: 45%;
+  height: 300px;
+  border-radius: 5px;
+  padding-top: 130px;
+  padding-bottom: 200px;
+  cursor: pointer;
+  transition: 0.1s;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.box span {
+  font-size: 200%;
+}
+
+.box:hover{
+  opacity: 80%;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+.form-signin input[name="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[name="confirmation"] {
+  margin-bottom: 10px;
+  margin-top: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.logout-link {
+    position: fixed;
+    bottom: 1.25em;
+    right: 1em;
+    font-weight: 500;
+    padding: 12px var(--spacing-2);
+    border-radius: 4px;
+    background: rgb(224, 224, 224);
+    color: black;
+    box-shadow: 0px 4px 8px 0px rgb(0 0 0 / 25%);
+    text-decoration: none !important;
+    transition: .2s background ease-in-out;
+}
+
+.logout-link:hover {
+	background:rgb(179, 179, 179);
+  text-decoration: none !important;
+  color: black;
+}
+
+.user-profile-header{
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+.user-avatar-image {
+    position: relative;
+    top: -130px;
+    margin-bottom: -100px;
+    width: 20%;
+}
+
+.link{
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+  text-decoration:none;
+}
+.link:hover{
+  color: #0070E0;
+  transition: 0.2s;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+    display: block;
+}
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid rgba(255, 255, 255, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(255, 255, 255, 0.05), inset 1px 1px 0px rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+.create {
+  padding: 8px 16px; 
+  background-color: #0070E0;
+  border-radius: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  transition: .2s opacity ease-in-out;
+  position: fixed;
+  top: 1.25em;
+  right: 1em;
+  margin: 0;
+}
+
+.create:hover {
+  opacity: .9;
+  color: white;
+}
+
+
+@keyframes spin{
+  0% { transform: scale(1) rotate(0); }
+  25% { transform: scale(1) rotate(90); }
+  50% { transform: scale(1) rotate(180); }
+  75% { transform: scale(1) rotate(270); }
+  100% { transform: scale(1) rotate(360deg);}
+}
+#realcontent{
+  transition: 0.2s;
+  opacity: 0;
+}
+    #logo{
+      animation-name: spin;
+      animation-duration: 2s;
+      animation-timing-function: cubic-bezier(0.80, 0, 0.20, 1);
+      animation-iteration-count: infinite;
+      transition: 0.2s;
+      pointer-events: none;
+      position: absolute;
+      top: 20%;
+      left: 40%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 20%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      text-align:center;
+      filter: brightness(2);
+    }

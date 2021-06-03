@@ -1,0 +1,30 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %} Would You Rather 🟦🟥 {% endblock %} 
+
+{% block body %}
+  <center>
+    <h1>All questions submitted by the comunity</h1>
+    Note: these are NOT moderated!
+    <hr>
+    {% for question in questions %}
+    <h2>Would you rather...</h2><br>
+    </center>
+    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/@{{ question.owner }}" class="link" id="q_owner">@{{ question.owner }}</a></h5>
+    <center>
+  <div class="wyr">
+    <div class="red box" onClick="voter.vote({{ question.id }}, 'left', this)"><span>{{ question.left }}</span></div>&nbsp&nbsp&nbsp&nbsp
+    <div class="blue box" onClick="voter.vote({{ question.id }}, 'right', this)"><span>{{ question.right }}</span></div>
+  </div>
+    {% if question.approved == False %}
+      {% if user.username == "ch1ck3n" %}
+        <br><br><a class="btn btn-primary" href="/api/question/approve?id={{ question.q_id }}">Approve</a>
+      {% endif %}
+    {% endif %}
+    <br><br><hr><br>
+    {% endfor %}
+  <br><br>
+    </center>
+{% endblock %}

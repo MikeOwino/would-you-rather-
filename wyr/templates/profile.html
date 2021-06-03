@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %} Would You Rather 🟦🟥 {% endblock %} 
+
+{% block body %}
+  <center>
+    <img src="{% static 'header.png' %}" class="img-fluid rounded user-profile-header">
+    <img src="{{ gravatar }}?s=500" class="user-avatar-image rounded-circle">
+    <h1>@{{ user.username }}</h1>
+    {% if user.username == "ch1ck3n" %}
+    <span class="badge bg-primary">ADMIN, DEV</span>
+    <span class="badge bg-warning">TRUSTED</span>
+    {% endif %}
+    {% if user.username == "UltraBraine X" %}
+    <span class="badge bg-warning">TRUSTED</span>
+    {% endif %}
+    <p>{{ user.votes }} votes</p>
+    {{ myquestions|length }} questions<br><br><br>
+    <h1>{{ user.username }}'s questions</h1><hr><Br>
+    {% for question in myquestions %}
+    <h2>Would you rather...</h2><br>
+        </center>
+    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/@{{ question.owner }}" class="link" id="q_owner">@{{ question.owner }}</a></h5>
+    <center>
+  <div class="wyr">
+    <div class="red box" onClick="voter.vote({{ question.id }}, 'left', this)"><span>{{ question.left }}</span></div>&nbsp&nbsp&nbsp&nbsp
+    <div class="blue box" onClick="voter.vote({{ question.id }}, 'right', this)"><span>{{ question.right }}</span></div>
+  </div>
+    <br><br><hr><br>
+    {% endfor %}
+  <br><br
+    </center>
+{% endblock %}

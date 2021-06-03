@@ -1,0 +1,37 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %} Would You Rather 🟦🟥 {% endblock %} 
+
+{% block body %}
+
+<center>
+  <h3>Would You Rather...</h3><Br>
+      </center>
+    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/@{{ question.owner }}" class="link" id="q_owner">@{{ question.owner }}</a></h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="pub_date">{{ question.pub_data }}</span>
+    <center>
+  <div class="questions">    
+  <div class="wyr">
+    <div class="red box" onClick="voter.vote({{ question.id }}, 'left', this)"><span>{{ question.left }}</span></div>&nbsp&nbsp&nbsp&nbsp
+    <div class="blue box" onClick="voter.vote({{ question.id }}, 'right', this)"><span>{{ question.right }}</span></div>
+  </div>
+  <Br><br>
+  <button class="btn btn-outline-primary" onClick="voter.random(this)">A new question, please!</button>
+  </div>
+  <br><hr>
+  <h2>Profile</h2>
+  <a href="https://would-you-rather.ch1ck3n.repl.co/@{{ user.username }}" class="link">
+  <img src="{% static 'header.png' %}" class="img-fluid rounded user-profile-header">
+  <img src="{{ gravatar }}?s=500" class="user-avatar-image rounded-circle"><h1>@{{ user.username }}</h1>
+  {% if user.username == "ch1ck3n" %}
+    <span class="badge bg-primary">ADMIN, DEV</span>
+    <span class="badge bg-warning">TRUSTED</span>
+  {% endif %}
+  <p>{{ user.votes }} votes</p>
+  {{ myquestions|length }} questions
+  </a>
+</center>
+<script>
+</script>
+{% endblock %}
